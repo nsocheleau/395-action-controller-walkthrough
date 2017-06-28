@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   use Rack::ShowExceptions, only: :show
 
   def index
-    @articles = Article.all
+    @articles = Article.select([:id, :name, :content, :create_at]).all
   end
 
   def show
